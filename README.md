@@ -1,16 +1,34 @@
-# React + Vite
+# 🌱 쑥쑥로그 (SsukSsuk Log)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+어린이집 교사용 아동 건강 관리 웹 서비스입니다.  
+교사가 아동의 건강 상태를 기록하고, 보호자와 소통하며, 복약 요청 등을 효율적으로 관리할 수 있도록 기획한 프로젝트입니다.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📌 프로젝트 소개
 
-## React Compiler
+쑥쑥로그는 어린이집 현장에서 발생하는 건강 기록 업무를 디지털화하여  
+교사의 업무 부담을 줄이고, 보호자와의 소통을 더 원활하게 만드는 것을 목표로 합니다.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ✨ 주요 기능
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 로그인 / 회원가입 UI
+- 교사용 대시보드
+- 아동 목록 및 반별 조회
+- 건강 상태 입력 (체온, 증상, 메모)
+- 아동 건강 히스토리 확인
+- 보호자 알림 메시지 관리
+- 복약 요청 및 투약 여부 관리
+
+---
+
+## 🛠 사용 기술
+
+- React
+- Vite
+- Styled-components
+- JavaScript (ES6+)
+
+---
