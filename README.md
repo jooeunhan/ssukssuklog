@@ -1,16 +1,211 @@
-# React + Vite
+쑥쑥로그 (SsukSsuk Log)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AI를 활용하여 어린이집·유치원 교사의 아동 건강 기록과 이상 징후 관리를 보조하는 웹 서비스입니다.
 
-Currently, two official plugins are available:
+교사가 입력한 체온, 관찰 기록, 아동의 기본 정보를 바탕으로 건강 상태를 분석하고, 필요한 경우 보호자에게 전달할 안내 메시지를 생성할 수 있도록 구성하였습니다.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+주요 기능
 
-## React Compiler
+1. 아동 건강 정보 관리
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+아동별 기본 정보 조회
 
-## Expanding the ESLint configuration
+반별 아동 목록 관리
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+연령 및 특이사항 확인
+
+일별 건강 기록 저장
+
+2. 체온 및 건강 상태 기록
+
+오전 / 점심 / 오후 체온 입력
+
+아동의 건강 상태 및 특이사항 기록
+
+날짜별 건강 기록 조회
+
+최근 건강 상태 변화 확인
+
+3. AI 기반 관찰 기록 분석
+
+교사가 자연어로 입력한 관찰 기록에서 주요 증상과 상태 정보를 추출합니다.
+
+예시
+
+오늘 오전부터 기침을 자주 하고 평소보다 축 처져 있음
+
+분석 결과 예시
+
+증상: 기침, 무기력
+상태: 관찰 필요
+권장 조치: 체온 재측정 및 지속적인 상태 확인
+
+자연어 분석에는 한국어 문맥 이해가 가능한 BERT 계열 모델 또는 LLM을 활용할 수 있습니다.
+
+4. 건강 상태 종합 분석
+
+체온 데이터와 관찰 기록에서 추출된 증상을 함께 활용하여 아동의 건강 상태를 분류합니다.
+
+예상 상태 분류
+
+정상
+
+관찰 필요
+
+주의 필요
+
+즉시 확인 필요
+
+초기 버전에서는 규칙 기반 로직과 머신러닝 분류 모델을 함께 활용하며, 데이터가 충분히 확보된 이후 정확도를 개선할 예정입니다.
+
+5. 보호자 안내 메시지 생성
+
+분석된 건강 상태와 기록을 기반으로 보호자에게 전달할 메시지를 자동 생성합니다.
+
+이 기능은 별도의 의료 판단 모델이 아니라 OpenAI API 기반 LLM을 사용하여 이미 분석된 정보를 자연스럽고 공손한 문장으로 변환하는 용도로 활용합니다.
+
+예시
+
+안녕하세요. 오늘 오후 체온이 평소보다 높게 측정되었으며,
+기침과 피로한 모습이 관찰되었습니다.
+가정에서도 아이의 상태를 확인해주시기 바랍니다.
+
+6. 투약 및 건강 기록 관리
+
+투약 의뢰 및 기록 관리
+
+아동별 투약 정보 확인
+
+건강 기록과 함께 통합 관리
+
+AI 활용 구조
+
+기능
+
+활용 방법
+
+체온 이상 여부 판단
+
+규칙 기반 분석
+
+자연어 관찰 기록 분석
+
+KoBERT / KLUE-BERT 등 한국어 NLP 모델
+
+건강 상태 분류
+
+Random Forest 등 머신러닝 분류 모델
+
+보호자 메시지 생성
+
+OpenAI API 기반 LLM
+
+건강 기록 요약
+
+LLM 기반 일일 리포트 생성
+
+AI는 의료 진단을 수행하기 위한 목적이 아니라, 교사가 기록한 정보를 정리하고 건강 이상 징후를 빠르게 확인할 수 있도록 보조하는 역할로 사용합니다.
+
+시스템 흐름
+
+교사
+ ↓
+아동 선택
+ ↓
+체온 및 관찰 기록 입력
+ ↓
+백엔드 서버
+ ↓
+┌───────────────────────┐
+│  체온 규칙 기반 분석   │
+│  자연어 증상 분석      │
+│  건강 상태 분류        │
+└───────────────────────┘
+ ↓
+분석 결과 저장
+ ↓
+건강 상태 / 권장 조치 출력
+ ↓
+보호자 안내 메시지 생성
+
+개발 환경
+
+Frontend
+
+React
+
+JavaScript
+
+styled-components
+
+React Router
+
+Backend
+
+Python
+
+FastAPI
+
+AI / Machine Learning
+
+Python
+
+scikit-learn
+
+Random Forest
+
+KoBERT / KLUE-BERT
+
+OpenAI API
+
+Development Tools
+
+Visual Studio Code
+
+Git
+
+GitHub
+
+주요 페이지
+
+로그인
+
+대시보드
+
+아동 목록
+
+건강 정보 입력
+
+아동별 건강 기록 조회
+
+보호자 메시지 작성
+
+투약 관리
+
+향후 개발 계획
+
+실제 아동 건강 데이터에 적합한 데이터셋 추가 확보
+
+자연어 증상 분석 정확도 향상
+
+아동별 7일 건강 상태 그래프 제공
+
+건강 이상 징후 알림 기능 추가
+
+보호자 메시지 자동 생성 기능 개선
+
+모바일 환경 UI 최적화
+
+실제 어린이집 환경을 고려한 사용자 테스트 진행
+
+개인정보 보호 및 데이터 보안 강화
+
+주의사항
+
+본 서비스에서 제공하는 AI 분석 결과는 의료적 진단을 대체하지 않습니다.
+
+AI는 교사의 관찰과 기록을 보조하기 위한 목적으로 사용되며, 아동에게 응급 상황 또는 명확한 이상 증상이 확인되는 경우에는 AI 분석 결과를 기다리지 않고 보호자 연락 및 의료기관 이용 등 기관의 기존 대응 지침을 우선해야 합니다.
+
+프로젝트 목적
+
+본 프로젝트는 AI 기술을 어린이집·유치원의 건강 관리 업무에 적용하여 교사의 반복적인 기록 업무를 줄이고, 아동의 건강 상태 변화를 보다 체계적으로 관리할 수 있는 환경을 제공하는 것을 목표로 합니다.
