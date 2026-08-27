@@ -37,13 +37,41 @@ function RootLayout() {
       subtitle: "확인이 필요한 내용을 살펴봐요.",
       active: "notification",
     },
+
+    "/parent-message": {
+      title: "보호자 메시지",
+      subtitle: "오늘의 건강 상태를 보호자에게 전달해요.",
+      active: "",
+    },
   };
 
-  const currentPage = pageInfo[location.pathname] || {
-    title: "쑥쑥로그",
-    subtitle: "",
-    active: "",
+  const getPageInfo = () => {
+    // 아동별 건강 기록 페이지
+    // /children/1/history
+    // /children/2/history
+    // ...
+    if (
+      location.pathname.startsWith("/children/") &&
+      location.pathname.endsWith("/history")
+    ) {
+      return {
+        title: "건강 기록",
+        subtitle: "아동의 건강 상태 변화를 확인해요.",
+        active: "children",
+      };
+    }
+
+    // 일반 페이지
+    return (
+      pageInfo[location.pathname] || {
+        title: "쑥쑥로그",
+        subtitle: "",
+        active: "",
+      }
+    );
   };
+
+  const currentPage = getPageInfo();
 
   return (
     <Container>

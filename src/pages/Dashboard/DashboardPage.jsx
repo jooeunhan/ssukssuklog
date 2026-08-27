@@ -95,8 +95,11 @@ function DashboardPage() {
               </MenuDescription>
             </MenuCard>
 
-            <MenuCard>
-              <IconBox background="#FCECEF" color="#D97787">
+            <MenuCard onClick={() => navigate("/parent-message")}>
+              <IconBox
+                background="#FCECEF"
+                color="#D97787"
+              >
                 <MessageCircleHeart size={24} />
               </IconBox>
 

@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Search, ChevronRight, Baby } from "lucide-react";
 
 import StatusBadge from "../../components/Card/StatusBadge";
 
 function ChildrenPage() {
+  const navigate = useNavigate();
+
   const [selectedClass, setSelectedClass] = useState("전체");
   const [keyword, setKeyword] = useState("");
 
@@ -114,7 +117,12 @@ function ChildrenPage() {
 
       <ChildrenList>
         {filteredChildren.map((child) => (
-          <ChildCard key={child.id}>
+          <ChildCard
+            key={child.id}
+            onClick={() =>
+              navigate(`/children/${child.id}/history`)
+            }
+          >
             <Profile $background={child.profileColor}>
               {child.name.slice(0, 1)}
             </Profile>
