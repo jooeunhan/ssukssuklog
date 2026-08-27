@@ -27,7 +27,7 @@ function BottomNavigation({ active = "home" }) {
       </NavItem>
 
       <CenterItem>
-        <RecordButton>
+        <RecordButton onClick={() => navigate("/health-input")}>
           <ClipboardPlus size={24} />
         </RecordButton>
         <span>기록</span>
