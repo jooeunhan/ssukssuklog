@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import RootLayout from "./layout/RootLayout";
+
 import LoginPage from "./pages/Login/LoginPage";
 import DashboardPage from "./pages/Dashboard/DashboardPage";
+import ChildrenPage from "./pages/Children/ChildrenPage";
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
 
         <Route element={<RootLayout />}>
           <Route index element={<DashboardPage />} />
+          <Route path="/children" element={<ChildrenPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

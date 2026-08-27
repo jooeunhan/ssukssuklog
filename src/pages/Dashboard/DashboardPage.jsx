@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import {
   HeartPulse,
@@ -15,6 +16,8 @@ import SectionHeader from "../../common/Header/SectionHeader";
 import StatusBadge from "../../components/Card/StatusBadge";
 
 function DashboardPage() {
+  const navigate = useNavigate();
+
   return (
     <Container>
 
@@ -70,7 +73,7 @@ function DashboardPage() {
               </MenuDescription>
             </MenuCard>
 
-            <MenuCard>
+            <MenuCard onClick={() => navigate("/children")}>
               <IconBox background="#EEF3FF" color="#708FD0">
                 <Baby size={24} />
               </IconBox>
