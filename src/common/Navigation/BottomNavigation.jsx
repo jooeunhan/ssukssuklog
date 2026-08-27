@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import {
   House,
@@ -8,14 +9,19 @@ import {
 } from "lucide-react";
 
 function BottomNavigation({ active = "home" }) {
+  const navigate = useNavigate();
+
   return (
     <Container>
-      <NavItem $active={active === "home"}>
+      <NavItem $active={active === "home"}
+        onClick={() => navigate("/")}>
         <House size={21} />
         <span>홈</span>
       </NavItem>
 
-      <NavItem $active={active === "children"}>
+      <NavItem $active={active === "children"}
+        onClick={() => navigate("/children")}
+      >
         <Baby size={21} />
         <span>아이</span>
       </NavItem>
