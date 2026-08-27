@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import {
@@ -10,16 +11,22 @@ import {
 import CommonButton from "../../components/Button/CommonButton";
 
 function LoginPage() {
+  const navigate = useNavigate();
+
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    console.log({
-      userId,
-      password,
-    });
+    if (!userId || !password) {
+      alert("아이디와 비밀번호를 입력해주세요.");
+      return;
+    }
+
+    // 현재는 로그인 API 연결 전이므로
+    // 입력값이 있으면 바로 대시보드로 이동
+    navigate("/");
   };
 
   return (
@@ -34,7 +41,7 @@ function LoginPage() {
 
       <LoginBox>
         <LogoArea>
-          <Logo><Sprout size={30}/></Logo>
+          <Logo><Sprout size={30} /></Logo>
 
           <Title>쑥쑥로그</Title>
 
@@ -51,7 +58,7 @@ function LoginPage() {
               <Label>아이디</Label>
 
               <InputBox>
-                <InputIcon><UserRound size={18}/></InputIcon>
+                <InputIcon><UserRound size={18} /></InputIcon>
 
                 <Input
                   type="text"
