@@ -41,7 +41,7 @@ function RootLayout() {
     "/parent-message": {
       title: "보호자 메시지",
       subtitle: "오늘의 건강 상태를 보호자에게 전달해요.",
-      active: "",
+      active: "parent-message",
     },
   };
 
@@ -75,10 +75,7 @@ function RootLayout() {
 
   return (
     <Container>
-      <Header
-        title={currentPage.title}
-        subtitle={currentPage.subtitle}
-      />
+      <Header title={currentPage.title} subtitle={currentPage.subtitle} />
 
       <Main>
         <Outlet />

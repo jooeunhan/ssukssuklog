@@ -5,7 +5,7 @@ import {
   Baby,
   ClipboardPlus,
   Pill,
-  Bell,
+  MessageCircleHeart,
 } from "lucide-react";
 
 function BottomNavigation({ active = "home" }) {
@@ -13,13 +13,13 @@ function BottomNavigation({ active = "home" }) {
 
   return (
     <Container>
-      <NavItem $active={active === "home"}
-        onClick={() => navigate("/")}>
+      <NavItem $active={active === "home"} onClick={() => navigate("/")}>
         <House size={21} />
         <span>홈</span>
       </NavItem>
 
-      <NavItem $active={active === "children"}
+      <NavItem
+        $active={active === "children"}
         onClick={() => navigate("/children")}
       >
         <Baby size={21} />
@@ -33,14 +33,20 @@ function BottomNavigation({ active = "home" }) {
         <span>기록</span>
       </CenterItem>
 
-      <NavItem $active={active === "medication"}>
+      <NavItem
+        $active={active === "medication"}
+        onClick={() => navigate("/medication")}
+      >
         <Pill size={21} />
         <span>투약</span>
       </NavItem>
 
-      <NavItem $active={active === "notification"}>
-        <Bell size={21} />
-        <span>알림</span>
+      <NavItem
+        $active={active === "parent-message"}
+        onClick={() => navigate("/parent-message")}
+      >
+        <MessageCircleHeart size={21} />
+        <span>보호자 메시지</span>
       </NavItem>
     </Container>
   );

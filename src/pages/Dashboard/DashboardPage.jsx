@@ -20,15 +20,12 @@ function DashboardPage() {
 
   return (
     <Container>
-
       <Content>
         <SummaryCard>
           <SummaryTop>
             <div>
               <SummaryLabel>오늘의 건강 현황</SummaryLabel>
-              <SummaryTitle>
-                오늘 아이들은 이렇게 지내고 있어요
-              </SummaryTitle>
+              <SummaryTitle>오늘 아이들은 이렇게 지내고 있어요</SummaryTitle>
             </div>
 
             <IconBox>
@@ -62,15 +59,13 @@ function DashboardPage() {
           <SectionHeader title="빠른 메뉴" />
 
           <MenuGrid>
-            <MenuCard>
+            <MenuCard onClick={() => navigate("/health-input")}>
               <IconBox background="#E8F6EC" color="#63B77D">
                 <ClipboardPlus size={24} />
               </IconBox>
 
               <MenuTitle>건강 정보 입력</MenuTitle>
-              <MenuDescription>
-                체온과 오늘의 상태를 기록해요
-              </MenuDescription>
+              <MenuDescription>체온과 오늘의 상태를 기록해요</MenuDescription>
             </MenuCard>
 
             <MenuCard onClick={() => navigate("/children")}>
@@ -79,34 +74,25 @@ function DashboardPage() {
               </IconBox>
 
               <MenuTitle>아동 목록</MenuTitle>
-              <MenuDescription>
-                아이들의 건강 상태를 확인해요
-              </MenuDescription>
+              <MenuDescription>아이들의 건강 상태를 확인해요</MenuDescription>
             </MenuCard>
 
-            <MenuCard>
+            <MenuCard onClick={() => navigate("/medication")}>
               <IconBox background="#FFF2DF" color="#D79B48">
                 <Pill size={24} />
               </IconBox>
 
               <MenuTitle>투약 관리</MenuTitle>
-              <MenuDescription>
-                오늘 예정된 투약을 확인해요
-              </MenuDescription>
+              <MenuDescription>오늘 예정된 투약을 확인해요</MenuDescription>
             </MenuCard>
 
             <MenuCard onClick={() => navigate("/parent-message")}>
-              <IconBox
-                background="#FCECEF"
-                color="#D97787"
-              >
+              <IconBox background="#FCECEF" color="#D97787">
                 <MessageCircleHeart size={24} />
               </IconBox>
 
               <MenuTitle>보호자 메시지</MenuTitle>
-              <MenuDescription>
-                오늘 기록으로 메시지를 만들어요
-              </MenuDescription>
+              <MenuDescription>오늘 기록으로 메시지를 만들어요</MenuDescription>
             </MenuCard>
           </MenuGrid>
         </Section>
