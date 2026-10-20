@@ -1,10 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import {
-  Check,
-  MessageCircleHeart,
-  Sparkles,
-} from "lucide-react";
+import { Check, MessageCircleHeart, Sparkles } from "lucide-react";
 
 import FormSection from "../../components/FormSection/FormSection";
 import ChildSelect from "../../components/Child/ChildSelect";
@@ -26,7 +22,7 @@ function ParentMessagePage() {
   ];
 
   const selectedChildInfo = children.find(
-    (child) => child.id === Number(selectedChild)
+    (child) => child.id === Number(selectedChild),
   );
 
   const todayRecords = [
@@ -62,7 +58,7 @@ function ParentMessagePage() {
 
     if (tone === "simple") {
       setMessage(
-        `안녕하세요, ${childName} 보호자님. 오늘 체온은 37.6℃였으며 간헐적인 기침이 관찰되었습니다. 점심 식사와 낮잠은 평소와 같이 잘 진행되었습니다. 가정에서도 상태를 살펴봐 주세요.`
+        `안녕하세요, ${childName} 보호자님. 오늘 체온은 37.6℃였으며 간헐적인 기침이 관찰되었습니다. 점심 식사와 낮잠은 평소와 같이 잘 진행되었습니다. 가정에서도 상태를 살펴봐 주세요.`,
       );
 
       return;
@@ -70,14 +66,14 @@ function ParentMessagePage() {
 
     if (tone === "detail") {
       setMessage(
-        `안녕하세요, ${childName} 보호자님. 오늘 ${selectedChildInfo.name}의 건강 상태를 전달드립니다. 체온은 37.6℃로 기록되었으며 활동 중 간헐적으로 기침하는 모습이 관찰되었습니다. 점심 식사는 정상적으로 섭취하였고 낮잠도 편안하게 잤습니다. 현재 특별한 이상 반응은 없으나 가정에서도 기침이나 체온 변화를 한 번 더 살펴봐 주시면 감사하겠습니다.`
+        `안녕하세요, ${childName} 보호자님. 오늘 ${selectedChildInfo.name}의 건강 상태를 전달드립니다. 체온은 37.6℃로 기록되었으며 활동 중 간헐적으로 기침하는 모습이 관찰되었습니다. 점심 식사는 정상적으로 섭취하였고 낮잠도 편안하게 잤습니다. 현재 특별한 이상 반응은 없으나 가정에서도 기침이나 체온 변화를 한 번 더 살펴봐 주시면 감사하겠습니다.`,
       );
 
       return;
     }
 
     setMessage(
-      `안녕하세요, ${childName} 보호자님 :) 오늘 ${selectedChildInfo.name}는 점심도 잘 먹고 낮잠도 편안하게 잤어요. 다만 활동 중 간헐적으로 기침하는 모습이 보여 전달드립니다. 체온은 37.6℃로 기록되었어요. 가정에서도 한 번 살펴봐 주세요.`
+      `안녕하세요, ${childName} 보호자님 :) 오늘 ${selectedChildInfo.name}는 점심도 잘 먹고 낮잠도 편안하게 잤어요. 다만 활동 중 간헐적으로 기침하는 모습이 보여 전달드립니다. 체온은 37.6℃로 기록되었어요. 가정에서도 한 번 살펴봐 주세요.`,
     );
   };
 
@@ -147,16 +143,10 @@ function ParentMessagePage() {
         title="메시지 스타일"
         description="보호자에게 전달할 말투를 선택해주세요."
       >
-        <ToneSelector
-          value={tone}
-          onChange={setTone}
-        />
+        <ToneSelector value={tone} onChange={setTone} />
       </FormSection>
 
-      <AiGenerateButton
-        type="button"
-        onClick={handleGenerate}
-      >
+      <AiGenerateButton type="button" onClick={handleGenerate}>
         <Sparkles size={18} />
         AI 메시지 만들기
       </AiGenerateButton>
@@ -175,10 +165,9 @@ function ParentMessagePage() {
 
         <TextCount>{message.length} / 1000</TextCount>
       </FormSection>
-
-      <CommonButton onClick={handleSend}>
-        보호자 메시지 저장하기
-      </CommonButton>
+      <ButtonWrapper>
+        <CommonButton onClick={handleSend}>보호자 메시지 저장하기</CommonButton>
+      </ButtonWrapper>
     </Container>
   );
 }
@@ -315,4 +304,8 @@ const TextCount = styled.p`
   font-size: 9px;
 
   text-align: right;
+`;
+
+const ButtonWrapper = styled.div`
+  margin-top: 18px;
 `;

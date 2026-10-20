@@ -9,9 +9,7 @@ function FormSection({ step, title, description, children }) {
         <div>
           <Title>{title}</Title>
 
-          {description && (
-            <Description>{description}</Description>
-          )}
+          {description && <Description>{description}</Description>}
         </div>
       </Header>
 
